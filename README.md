@@ -1,4 +1,4 @@
-# Smithsonian Backend
+# Openday Backend
 
 ## NOTE: For now, we only have a production environment
 
