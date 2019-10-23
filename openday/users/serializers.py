@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ['email', 'first_name', 'last_name', 'gender', 'birthday']
+        fields = ['id', 'email', 'first_name', 'last_name']
 
 
 class CustomUserRegisterSerializer(serializers.Serializer):
@@ -34,7 +34,6 @@ class CustomUserRegisterSerializer(serializers.Serializer):
     def validate_password(self, password):
         return get_adapter().clean_password(password)
 
-    # TODO: Additional validation
     def validate(self, data):
         return data
 
@@ -66,5 +65,5 @@ class CustomUserDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ['email', 'first_name', 'last_name', 'gender']
-        read_only_fields = ['email', ]
+        fields = ['id', 'email', 'first_name', 'last_name']
+        read_only_fields = ['email', 'id']
