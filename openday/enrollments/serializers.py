@@ -7,7 +7,7 @@ class EnrollmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Enrollment
-        fields = ['uuid', 'event', 'created']
+        fields = ['uuid', 'email', 'event', 'created']
 
 
 class EventSerializer(serializers.ModelSerializer):

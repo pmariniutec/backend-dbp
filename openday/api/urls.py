@@ -1,9 +1,11 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from openday.api.views import users, enrollments
 
 urlpatterns = [
     path('user/', users.UserDetail.as_view(), name='user'),
+    re_path(r'enroll/guest/(?P<email>([^@\s]+@[^@\s]+\.[^@\s]+))',
+            enrollments.EnrollGuestView.as_view(), name='enroll'),
     path('enroll/', enrollments.EnrollUserView.as_view(), name='enroll'),
     path('events/', enrollments.EventView.as_view(), name='events'),
 ]
