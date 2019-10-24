@@ -52,7 +52,6 @@ class EnrollUserView(APIView):
 
 
 class EventView(APIView):
-    permission_classes = (IsAuthenticated,)
     serializer_class = EventSerializer
 
     def get_queryset(self):
@@ -60,5 +59,5 @@ class EventView(APIView):
 
     def get(self, request, *args, **kwargs):
         data = self.get_queryset()
-        serializer = self.serializer_class(data)
+        serializer = self.serializer_class(data, many=True)
         return Response(serializer.data)
