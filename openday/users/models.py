@@ -1,4 +1,3 @@
-import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
@@ -12,7 +11,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     GENDERS = [('Male', 'Male'), ('Female', 'Female'), ('Other', 'Other')]
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(max_length=80)
     last_name = models.CharField(max_length=80)

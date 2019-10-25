@@ -6,7 +6,8 @@ from .models import Event, Enrollment
 @admin.register(Enrollment)
 class EnrollmentAdmin(admin.ModelAdmin):
     list_display = ['uuid', 'email', 'event', 'created', 'modified']
-    fields = ['uuid', 'email', 'event', 'created', 'modified']
+    fields = ['email', 'event']
+    readonly_fields = ['uuid', 'created', 'modified']
 
 
 @admin.register(Event)
